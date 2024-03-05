@@ -24,10 +24,10 @@ export default defineConfig({
 	base: "/",
 	server: {
 		host: "0.0.0.0",
-		port: 8080,
+		port: process.env.VITE_FE_PORT || 8080,
 		proxy: {
 			"/api/dev": {
-				target: "http://dashboard-be:8888",
+				target: process.env.VITE_BE_URL || "http://dashboard-be:8888",
 				changeOrigin: true,
 				rewrite: (path) => path.replace("/dev", "/v1"),
 			},
