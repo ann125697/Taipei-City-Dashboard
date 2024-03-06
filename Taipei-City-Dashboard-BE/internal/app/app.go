@@ -34,7 +34,7 @@ func StartApplication() {
 	routes.ConfigureRoutes()
 
 	// 5. Configure http server
-	addr := os.Getenv("DOMAIN") + ":" + os.Getenv("PORT")
+	addr := os.Getenv("DOMAIN") + ":8080"
 
 	err := endless.ListenAndServe(addr, routes.Router)
 	if err != nil {
